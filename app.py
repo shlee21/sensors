@@ -12,9 +12,9 @@ import plotly.express as px
 def get_org_file():
     # data = './streamlit-dashboard/data/gdp_by_country.csv'
     data = 'DevCenterCopy.xlsx'
-    df = pd.read_excel(data, header= None, names = ['daytime', 'temp1', 'temp2'], \
+    df = pd.read_excel(data, header= None, names = ['daytime', 'temp1', 'temp2'], index_col=False \
                                                   usecols= "A,C,D", dtype={'daytime':str})
-    st.write(df.tail())
+    # st.write(df.tail())
     return df
 
 @st.cache_data
