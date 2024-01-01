@@ -34,7 +34,7 @@ df_adj = adjust_file(df_org)
 
 
 date_list = df_adj['date'].sort_index(ascending=False).unique()
-sel_date = st.sidebar.selectbox("기준일을 선택하세요",date_list)
+sel_date = st.selectbox("기준일을 선택하세요",date_list)
 
 time_list = st.radio("시간간격을 선택해주세요", ['3시간','6시간','12시간','1일', \
                                                            '2일','3일', '5일'],horizontal=True)
