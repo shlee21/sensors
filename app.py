@@ -113,7 +113,7 @@ st.plotly_chart(fig)
 #     x = "entry_id", y = ["field1","field2"], title = country)
 
 # # plotly 그래프 출력하기
-# st.plotly_chart(fig)
+# st.plotly_chart(fig,use_container_width=True)
 
 
 # # 원본 데이터에서 선택한 국가의 rawdata 확인하기
