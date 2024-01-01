@@ -27,7 +27,7 @@ def get_org_file():
     data = 'DevCenterCopy.xlsx'
     df = pd.read_excel(data, header= None, names = ['daytime', 'temp1', 'temp2'], \
                                                   usecols= "A,C,D", dtype={'daytime':str})
-    st.write(df.tail().sort_index(ascending=False))
+   # st.write(df.tail().sort_index(ascending=False))
     return df
 
 @st.cache_data
@@ -39,7 +39,7 @@ def adjust_file(df):
                 minute = lambda x: x['daytime'].str[14:16],
                 second = lambda x: x['daytime'].str[17:19])
     df = df.loc[:,['daytime','date','hour','minute','second','temp1','temp2']]
-    st.write(df.tail().sort_index(ascending=False))
+   # st.write(df.tail().sort_index(ascending=False))
     return df
 
 df_org = get_org_file()
@@ -84,7 +84,7 @@ str_query = '@sel_date_sd <= daytime <= @sel_date_ed'
 # df_filter = df.query(str_query)
 df_filter = df_adj.query(str_query).sort_index(ascending=False)[:val_cnt:3]   # df_filter[::6]  처음부터, 끝까지 6개마다 찍기 10초*6 = 1분
 
-st.write(df_filter)
+#st.write(df_filter)
 
 # px.line(df, x=, y=, )
 fig = px.line(df_filter, x="daytime", y=["temp1","temp2"], range_y=[0,60])
