@@ -14,7 +14,7 @@ def get_org_file():
     data = 'DevCenterCopy.xlsx'
     df = pd.read_excel(data, header= None, names = ['daytime', 'temp1', 'temp2'], \
                                                   usecols= "A,C,D", dtype={'daytime':str})
-   # st.write(df.tail().sort_index(ascending=False))
+   st.write(df.tail().sort_index(ascending=False))
     return df
 
 @st.cache_data
