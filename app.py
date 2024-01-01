@@ -24,7 +24,7 @@ import plotly.express as px
 @st.cache_data
 def get_org_file():
     # data = './streamlit-dashboard/data/gdp_by_country.csv'
-    data = './DevCenterCopy.xlsx'
+    data = 'DevCenterCopy.xlsx'
     df = pd.read_excel(data, header= None, names = ['daytime', 'temp1', 'temp2'], \
                                                   usecols= "A,C,D", dtype={'daytime':str})
     st.write(df.tail().sort_index(ascending=False))
