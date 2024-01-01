@@ -36,7 +36,7 @@ df_adj = adjust_file(df_org)
 date_list = df_adj['date'].sort_index(ascending=False).unique()
 sel_date = st.sidebar.selectbox("기준일을 선택하세요",date_list)
 
-time_list = st.sidebar.radio("시간간격을 선택해주세요", ['3시간','6시간','12시간','1일', \
+time_list = st.radio("시간간격을 선택해주세요", ['3시간','6시간','12시간','1일', \
                                                            '2일','3일', '5일'])
 if time_list == "3시간":
     val_cnt = 4*60  # 1분단위기준
@@ -64,12 +64,10 @@ str_query = '@sel_date_sd <= daytime <= @sel_date_ed'
 # df_filter = df.query(str_query)
 df_filter = df_adj.query(str_query).sort_index(ascending=False)[:val_cnt:3]   # df_filter[::6]  처음부터, 끝까지 6개마다 찍기 10초*6 = 1분
 
-st.write(df_filter)
-
 # px.line(df, x=, y=, )
 fig = px.line(df_filter, x="daytime", y=["temp1","temp2"], range_y=[0,60])
 
 # plotly 그래프 출력하기
 st.plotly_chart(fig,use_container_width=True)
 
-
+st.write(df_filter)
