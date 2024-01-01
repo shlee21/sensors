@@ -1,6 +1,7 @@
 streamlit
 pandas
-plotly.express
+plotly
+express
 datetime
 dateutil
 parse
