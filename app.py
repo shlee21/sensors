@@ -38,6 +38,8 @@ sel_date = st.sidebar.selectbox("기준일을 선택하세요",date_list)
 
 time_list = st.radio("시간간격을 선택해주세요", ['3시간','6시간','12시간','1일', \
                                                            '2일','3일', '5일'])
+st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+
 if time_list == "3시간":
     val_cnt = 4*60  # 1분단위기준
 elif time_list == "6시간":
